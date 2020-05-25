@@ -43,6 +43,7 @@
                   <div class="form-group">
                     <label>Nama</label>
                     <input type="text" class="form-control" name="nama" placeholder="Masukkan nama Siswa">
+                    <?php echo form_error('nama'); ?>
                   </div>
                   <div class="form-group">
                     <label>Jenis Kelamin</label><br>
@@ -54,6 +55,7 @@
                   <div class="form-group">
                     <label>Umur</label>
                     <input type="text" class="form-control" name="umur" placeholder="Masukkan umur siswa">
+                    <?php echo form_error('umur'); ?>
                   </div>
                   <div class="form-group">
                     <label>Kelas</label>

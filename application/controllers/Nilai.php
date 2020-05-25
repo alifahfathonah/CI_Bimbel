@@ -16,11 +16,22 @@ class Nilai extends CI_Controller
 
     public function create(){
         if (isset($_POST['nilai_submit'])){
-            $this->model->id_mapel = $_POST['id_mapel'];
-            $this->model->id_siswa = $_POST['id_siswa'];
-            $this->model->nilai = $_POST['nilai'];
-            $this->model->insert();
-            redirect('nilai');
+            $pesanError = ['required'=>'<span style="color:red;">Required</span>'];
+            $this->form_validation->set_rules('id_mapel', 'mapel', 'required', $pesanError);
+            $this->form_validation->set_rules('id_siswa', 'siswa', 'required', $pesanError);
+            $this->form_validation->set_rules('nilai', 'niali', 'required|numeric', $pesanError);
+            if ($this->form_validation->run() == TRUE){
+                $this->model->id_mapel = $_POST['id_mapel'];
+                $this->model->id_siswa = $_POST['id_siswa'];
+                $this->model->nilai = $_POST['nilai'];
+                $this->model->insert();
+                redirect('nilai');
+            }
+            else {
+                $mapel_rows = $this->model->readmapel();
+                $siswa_rows = $this->model->readsiswa();
+                $this->load->view('nilai_add_view.php', ['mapel_rows'=>$mapel_rows, 'siswa_rows'=>$siswa_rows]);
+            }
         }else{
             $mapel_rows = $this->model->readmapel();
             $siswa_rows = $this->model->readsiswa();

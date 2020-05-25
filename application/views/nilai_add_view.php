@@ -52,6 +52,7 @@
                       ?>
                     </select>
                   </div>
+                  <?php echo form_error('mapel'); ?>
                   <div class="form-group">
                     <label>Nama Siswa</label>
                     <select name="id_siswa" class="form-control">
@@ -64,10 +65,12 @@
                       ?>
                     </select>
                   </div>
+                  <?php echo form_error('siswa'); ?>
                   <div class="form-group">
                     <label>Niai</label>
                     <input type="text" class="form-control" name="nilai" placeholder="Masukkan Nilai">
                   </div>
+                  <?php echo form_error('nilai'); ?>
                   <div class="card-footer">
                     <button type="submit" name="nilai_submit" class="btn btn-primary">Tambah baru</button>
                   </div>

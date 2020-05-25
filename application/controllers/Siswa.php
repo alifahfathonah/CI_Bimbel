@@ -15,14 +15,25 @@ class Siswa extends CI_Controller
     }
 
     public function create(){
+        
+
         if (isset($_POST['siswa_submit'])){
-            $this->model->nama_siswa = $_POST['nama'];
-            $this->model->jenis_kelamin = $_POST['jenis_kelamin'];
-            $this->model->umur = $_POST['umur'];
-            $this->model->kelas = $_POST['kelas'];
-            $this->model->sekolah_asal = $_POST['sekolah'];
-            $this->model->insert();
-            redirect('siswa');
+            $pesanError = ['required'=>'<span style="color:red;">Required</span>'];
+            $this->form_validation->set_rules('nama', 'nama', 'required|alpha_numeric_spaces', $pesanError);
+            //$this->form_validation->set_rules('umur', 'umur', 'required|integer', $pesanError);
+            if ($this->form_validation->run() == TRUE){
+                $this->model->nama_siswa = $_POST['nama'];
+                $this->model->jenis_kelamin = $_POST['jenis_kelamin'];
+                $this->model->umur = $_POST['umur'];
+                $this->model->kelas = $_POST['kelas'];
+                $this->model->sekolah_asal = $_POST['sekolah'];
+                $this->model->insert();
+                redirect('siswa');
+            }
+            else {
+                $this->load->view('siswa_add_view');
+            }
+            
         }else{
             $this->load->view("siswa_add_view.php");
         }
