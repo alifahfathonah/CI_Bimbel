@@ -47,5 +47,6 @@ class Siswa_model extends CI_Model
     public function select($id){
         $query = $this->db->query("SELECT * FROM siswa WHERE id_siswa='$id'");
         return $query->row();
+        //test
     }
 }
