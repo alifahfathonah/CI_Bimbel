@@ -31,6 +31,7 @@
       <div class="container-fluid">
         <h1 class="mt-4">Data Bimbel</h1>
         <p>Simulasi rekap data siswa bimbel.</p>
+        <button type="button" onclick="javascript:top.location.href='Login/logout'" class="btn btn-primary">Log Out<i class="fa fa-pencil"></i></button>
       </div>
     </div>
     <!-- /#page-content-wrapper -->
