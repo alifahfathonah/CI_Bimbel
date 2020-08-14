@@ -17,15 +17,15 @@
         <div class="row">
             <div class="col-12 col-md-6 text-center mt-5 mx-auto p-4">
                 <h1 class="h2">Login Admin</h1>
-                <p class="lead">Silahkan masuk ke Panel Admin</p>
+                <p class="lead">Silahkan login untuk lihat nilai</p>
             </div>
         </div>
         <div class="row">
             <div class="col-12 col-md-5 mx-auto mt-5">
                 <form action="<?= site_url('Login') ?>" method="POST">
                     <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="text" class="form-control" name="email" placeholder="Pakai username juga bisa.." required />
+                        <label for="email">Username/Email</label>
+                        <input type="text" class="form-control" name="email" placeholder="Pakai username atau email" required />
                     </div>
                     <div class="form-group">
                         <label for="password">Password</label>
